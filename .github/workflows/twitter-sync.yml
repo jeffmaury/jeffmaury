@@ -23,7 +23,7 @@ jobs:
         node-version: 20
         cache: 'npm'
     - run: npm ci
-    - run: npm build
+    - run: npm run build
     - name: Cache
       uses: actions/cache@v4.0.2
       with:
