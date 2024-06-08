@@ -1,0 +1,31 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Twitter sync
+
+on:
+  workflow_run:
+  schedule:
+      - cron: '*/30 * * * *'  
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        repository: 'louisgrasset/touitomamout'
+        ref: 'v1.7.0'
+    - name: Use Node.js 20
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+        cache: 'npm'
+    - run: npm ci
+    - name: Cache
+      uses: actions/cache@v4.0.2
+      with:
+        path: cache*json 
+        key: cache-json 
+          
