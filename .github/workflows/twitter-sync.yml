@@ -29,6 +29,8 @@ jobs:
       with:
         path: cache*json 
         key: cache-json 
+    - name: Dummy .env file
+      run: touch .env
     - name: Sync
       run: node dist/index.js
       env:
