@@ -28,4 +28,17 @@ jobs:
       with:
         path: cache*json 
         key: cache-json 
+    - name: Sync
+      run: node dist/index.js
+      env:
+        TWITTER_HANDLE: ${{ secrets.TWITTER_HANDLE }}
+        TWITTER_USERNAME: ${{ secrets.TWITTER_USERNAME }}
+        TWITTER_PASSWORD: ${{ secrets.TWITTER_PASSWORD }}
+        MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
+        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+        SYNC_MASTODON: ${{ secrets.SYNC_MASTODON }}
+        BLUESKY_INSTANCE: ${{ secrets.BLUESKY_INSTANCE }}
+        BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
+        BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
+        SYNC_BLUESKY: ${{ secrets.SYNC_BLUESKY }}
           
