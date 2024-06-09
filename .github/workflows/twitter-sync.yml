@@ -41,6 +41,7 @@ jobs:
         echo BLUESKY_IDENTIFIER=${{ secrets.BLUESKY_IDENTIFIER }} >>.env
         echo BLUESKY_PASSWORD=${{ secrets.BLUESKY_PASSWORD }} >>.env
         echo SYNC_BLUESKY=${{ secrets.SYNC_BLUESKY }} >>.env
+        ls -l .env
 
     - name: Sync
       run: node dist/index.js          
